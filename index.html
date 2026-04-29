@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Premium Hair Style Studio - Choose your perfect hairstyle, book appointments, and experience luxury grooming services.">
+  <title>Afzaal's Hair Studio | Premium Hair Styling</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✂️</text></svg>">
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-content">
+      <div class="loader-scissors">✂️</div>
+      <div class="loader-text">Afzaal's Hair Studio</div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo" onclick="scrollToSection('hero')">
+      Afzaal's<span>Hair Studio</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hairstyles" onclick="closeMenu()">Hairstyles</a></li>
+      <li><a href="#booking" onclick="closeMenu()">Book Now</a></li>
+      <li><a href="#pricing" onclick="closeMenu()">Pricing</a></li>
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#booking" class="nav-cta" onclick="closeMenu()">Appointment</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-badge">✦ Premium Grooming Experience</div>
+      <h1>Your Style,<br>Our <span class="gold">Expertise</span></h1>
+      <p>Discover the perfect hairstyle that matches your personality. Premium cuts, styling & grooming by professionals.</p>
+      <div class="hero-btns">
+        <a href="#hairstyles" class="btn-primary">Choose Your Style ✂️</a>
+        <a href="#booking" class="btn-outline">Book Appointment</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- HAIRSTYLES SECTION -->
+  <section class="hairstyles" id="hairstyles">
+    <div class="section-header">
+      <div class="tag">✦ Step 1</div>
+      <h2>Which <span class="gold">Hair Style</span> You Want?</h2>
+      <p>Browse our collection of trending hairstyles. Choose the one that speaks to you.</p>
+    </div>
+    <div class="styles-grid" id="stylesGrid">
+      <!-- Cards injected by JS -->
+    </div>
+  </section>
+
+  <!-- BOOKING SECTION -->
+  <section class="booking" id="booking">
+    <div class="section-header">
+      <div class="tag">✦ Step 2</div>
+      <h2>Book Your <span class="gold">Appointment</span></h2>
+      <p>Reserve your slot in 3 easy steps. Quick, simple, and hassle-free.</p>
+    </div>
+    <div class="booking-container">
+      <div class="booking-steps">
+        <div class="step-indicator active" onclick="goToStep(1)">
+          <div class="step-num">1</div>
+          <div class="step-label">Your Info</div>
+        </div>
+        <div class="step-indicator" onclick="goToStep(2)">
+          <div class="step-num">2</div>
+          <div class="step-label">Date & Time</div>
+        </div>
+        <div class="step-indicator" onclick="goToStep(3)">
+          <div class="step-num">3</div>
+          <div class="step-label">Confirm</div>
+        </div>
+      </div>
+      <div class="booking-form">
+        <!-- Step 1 -->
+        <div class="form-step active" id="formStep1">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="bookName" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" id="bookPhone" placeholder="Enter phone number">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Select Hairstyle</label>
+            <select id="bookStyle">
+              <option value="">Choose a hairstyle...</option>
+              <option>Classic Fade</option>
+              <option>Textured Crop</option>
+              <option>Pompadour</option>
+              <option>Buzz Cut</option>
+              <option>Side Part</option>
+              <option>Undercut</option>
+              <option>Quiff Style</option>
+              <option>Beard Trim</option>
+            </select>
+          </div>
+          <div class="form-btns">
+            <div></div>
+            <button class="btn-primary" onclick="goToStep(2)">Next Step →</button>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="form-step" id="formStep2">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Preferred Date</label>
+              <input type="date" id="bookDate">
+            </div>
+            <div class="form-group">
+              <label>Preferred Time</label>
+              <select id="bookTime">
+                <option value="">Select time...</option>
+                <option>10:00 AM</option>
+                <option>11:00 AM</option>
+                <option>12:00 PM</option>
+                <option>01:00 PM</option>
+                <option>02:00 PM</option>
+                <option>03:00 PM</option>
+                <option>04:00 PM</option>
+                <option>05:00 PM</option>
+                <option>06:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Special Notes (Optional)</label>
+            <textarea id="bookNotes" rows="3" placeholder="Any specific requests..."></textarea>
+          </div>
+          <div class="form-btns">
+            <button class="btn-outline" onclick="goToStep(1)">← Back</button>
+            <button class="btn-primary" onclick="goToStep(3)">Next Step →</button>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="form-step" id="formStep3">
+          <div id="confirmationSummary" style="text-align:center; padding:2rem 0;">
+            <div style="font-size:3rem; margin-bottom:1rem;">✅</div>
+            <h3 style="font-family:'Playfair Display',serif; font-size:1.5rem; margin-bottom:0.5rem;">Review Your Booking</h3>
+            <p style="color:var(--gray); margin-bottom:2rem;">Please confirm your appointment details below.</p>
+            <div id="summaryDetails" style="text-align:left; background:var(--dark-4); border-radius:12px; padding:1.5rem; margin-bottom:1.5rem;">
+            </div>
+          </div>
+          <div class="form-btns">
+            <button class="btn-outline" onclick="goToStep(2)">← Back</button>
+            <button class="btn-primary" onclick="submitBooking()">Confirm Booking ✓</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section class="pricing" id="pricing">
+    <div class="section-header">
+      <div class="tag">✦ Step 3</div>
+      <h2>Our <span class="gold">Pricing</span></h2>
+      <p>Transparent pricing for premium services. Choose the package that fits your needs.</p>
+    </div>
+    <div class="pricing-grid" id="pricingGrid">
+      <!-- Cards injected by JS -->
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about" id="about">
+    <div class="section-header">
+      <div class="tag">✦ About The Developer</div>
+      <h2>Meet <span class="gold">The Creator</span></h2>
+    </div>
+    <div class="about-container">
+      <div class="about-image-wrapper">
+        <div class="about-image-box">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop" alt="Muhammad Afzaal Khan">
+        </div>
+        <div class="about-float-card">
+          <div class="num">5+</div>
+          <div class="label">Years Experience</div>
+        </div>
+      </div>
+      <div class="about-content">
+        <h3>Muhammad <span class="gold">Afzaal Khan</span></h3>
+        <div class="role">Web Developer • WordPress Expert • Video Editor</div>
+        <p>I am Muhammad Afzaal Khan, a passionate and creative professional with extensive knowledge in web development, WordPress design, and video editing. I specialize in building modern, responsive websites with stunning animations and user-friendly interfaces.</p>
+        <p>With hands-on experience across multiple fields, I bring unique perspectives to every project, combining technical expertise with creative design to deliver exceptional digital experiences.</p>
+        <div class="skills-grid">
+          <div class="skill-tag">🌐 Web Development</div>
+          <div class="skill-tag">📱 WordPress</div>
+          <div class="skill-tag">🎬 Video Editing</div>
+          <div class="skill-tag">🎨 UI/UX Design</div>
+          <div class="skill-tag">⚡ Frontend Dev</div>
+          <div class="skill-tag">🔧 HTML/CSS/JS</div>
+        </div>
+        <a href="#booking" class="btn-primary">Let's Work Together</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Afzaal's Hair Studio</h3>
+        <p>Premium grooming services with a touch of luxury. Your style is our passion. Visit us for the best hair styling experience in town.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hairstyles">Hairstyles</a></li>
+          <li><a href="#booking">Book Now</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">📍 Your City, Pakistan</a></li>
+          <li><a href="#">📞 +92 XXX XXXXXXX</a></li>
+          <li><a href="#">✉️ afzaal@email.com</a></li>
+          <li><a href="#">🕒 Mon-Sat: 10AM - 8PM</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Afzaal's Hair Studio. Designed & Developed by <strong style="color:var(--gold);">Muhammad Afzaal Khan</strong></p>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
